@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dror S. [FFS]"
+        ]
+    },
+    "accessibilityToolbar": "The name of the extension",
+    "accessibilityToolbar-desc": "{{desc|name=AccessibilityToolbar|url=https://github.com/kolzchut/mediawiki-extensions-AccessibilityToolbar}}"
+}

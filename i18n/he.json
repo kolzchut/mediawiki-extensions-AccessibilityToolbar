@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dror S. [FFS]"
+		]
+	},
+	"accessibilityToolbar": "תפריט כלי נגישות",
+	"accessibilityToolbar-desc": "כלי נגישות המשכפלים במידת-מה את יכולות הדפדפן - הגדלת טקסט, שינוי ניגודיות וכד'.\nמבוסס על התוסף לוורדפרס [https://wordpress.org/plugins/real-accessability/ Real Accessability] של [http://realmedia.co.il RealMedia].",
+	"a11ytoolbar-header": "תפריט נגישות",
+	"a11ytoolbar-btn-text": "נגישות",
+	"a11ytoolbar-btn-tooltip": "לחצו להצגת אפשרויות נגישות ותצוגה",
+	"a11ytoolbar-increase-font": "הגדלת טקסט",
+	"a11ytoolbar-decrease-font": "הקטנת טקסט",
+	"a11ytoolbar-filter-high-contrast": "ניגודיות צבעים גבוהה",
+	"a11ytoolbar-filter-bw": "שחור ולבן",
+	"a11ytoolbar-filter-invert": "היפוך צבעים",
+	"a11ytoolbar-highlight-links": "הדגשת קישורים",
+	"a11ytoolbar-reset-settings": "איפוס ההגדרות",
+	"a11ytoolbar-statement": "הצהרת נגישות",
+	"a11ytoolbar-statement-page": "Project:הצהרת נגישות"
+}

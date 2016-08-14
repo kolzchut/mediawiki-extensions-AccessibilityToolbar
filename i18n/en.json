@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Dror S. [FFS]"
+        ]
+    },
+    "accessibilityToolbar": "Accessibility Toolbar",
+    "accessibilityToolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
+	"a11ytoolbar-header": "Accessibility menu",
+	"a11ytoolbar-btn-text": "Accessibility",
+	"a11ytoolbar-btn-tooltip": "Click for accessibility and display options",
+	"a11ytoolbar-increase-font": "Increase text size",
+	"a11ytoolbar-decrease-font": "Decrease text size",
+	"a11ytoolbar-filter-high-contrast": "High Contrast",
+	"a11ytoolbar-filter-bw": "Black & White",
+	"a11ytoolbar-filter-invert": "Inverse Colors",
+	"a11ytoolbar-highlight-links": "Highlight Links",
+	"a11ytoolbar-reset-settings": "Reset Settings",
+	"a11ytoolbar-statement": "Accessibility Statement",
+	"a11ytoolbar-statement-page": "Project:Accessibility Statement"
+}
