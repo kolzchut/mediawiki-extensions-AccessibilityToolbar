@@ -1,25 +1,6 @@
-@font-face {
-	font-family: 'realaccessability';
-	src:url('fonts/realaccessability.eot?717675');
-	src:url('fonts/realaccessability.eot?717675#iefix') format('embedded-opentype'),
-		url('fonts/realaccessability.ttf?717675') format('truetype'),
-		url('fonts/realaccessability.woff?717675') format('woff'),
-		url('fonts/realaccessability.svg?717675#realaccessability') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-.real-accessability-body {
+#real-accessability-body {
 	display: none;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
 	margin-bottom: 0; /* Proof against other styling, such as Bootstrap's .panel */
-
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2ms;
-    -o-transition: all 0.2ms;
-    transition: all 0.2s;
-
 }
 
 #real-accessability {
@@ -27,29 +8,39 @@
 	right: 0;
 	min-height: 35px;
 	z-index: 999999999;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2ms;
-    -o-transition: all 0.2ms;
-    transition: all 0.2s;  
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
 	&.top {
 		top: 0;
+
+		#real-accessability-body {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
 	}
 	&.bottom {
 		bottom: 0;
+
+		#real-accessability-body {
+			border-top-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
 	}
 }
 
 #real-accessability-btn {
-	background-color: #063d8d;
+	background-color: #4c728a;
+	color: #fff;
 	position: absolute;
 	left: -40px;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
+	font-size: 30px;
 	text-align: center;
 	cursor: pointer;
 	text-decoration: none;
@@ -58,114 +49,25 @@
 		top: -1px;
 	}
 	#real-accessability.bottom & {
-		bottom: 1px;
+		bottom: 0;
 	}
 }
 
-#real-accessability a#real-accessability-btn i {
-	font-family: 'realaccessability';
-	font-size: 26px;
+
+#real-accessability-btn span {
+	font-size: 30px;
+	width: 40px;
+	height: 40px;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	display: inline-block;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
-	color: #fff;	
 }
 
-#real-accessability a#real-accessability-btn i.real-accessability-icon:before {
-	content: "\e907";	
-}
-
-#real-accessability a#real-accessability-btn i.real-accessability-loading {
+#real-accessability-btn .real-accessability-icon {
 	display: none;
-}
-
-#real-accessability a#real-accessability-btn i.real-accessability-loading:before {
-	content: "\e908";
-	font-size: 20px;
-    -webkit-animation-name: spin;
-    -webkit-animation-duration: 2500ms;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-name: spin;
-    -moz-animation-duration: 2500ms;
-    -moz-animation-iteration-count: infinite;
-    -moz-animation-timing-function: linear;
-    -ms-animation-name: spin;
-    -ms-animation-duration: 2500ms;
-    -ms-animation-iteration-count: infinite;
-    -ms-animation-timing-function: linear;		
-}
-
-@-webkit-keyframes spin {
-	from {
-		-webkit-transform:rotate(0deg);
-	}
-	
-	to {
-		-webkit-transform:rotate(360deg);
-	}
 }
 
 #real-accessability.open {
 	right: 0;
-}
-
-
-.real-accessability-actions a:before {
-	font-family: 'realaccessability';
-	content: " ";
-	font-size: 17px;
-	margin-right: 10px;
-	position: relative;
-	top: 2px;
-	display: inline-block;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;	
-}
-
-.real-accessability-actions a#real-accessability-biggerFont:before {
-	content: "\e901";
-}
-
-.real-accessability-actions a#real-accessability-smallerFont:before {
-	content: "\e902";
-}
-
-.real-accessability-actions a#real-accessability-invert:before {
-	content: "\e904";	
-}
-
-.real-accessability-actions a#real-accessability-grayscale:before {
-	content: "\e903";
-}
-
-.real-accessability-actions a#real-accessability-linkHighlight:before {
-	content: "\e906";
-}
-
-.real-accessability-actions a#real-accessability-regularFont:before {
-	content: "\e900";
-}
-
-.real-accessability-actions a#real-accessability-reset:before {
-	content: "\e905";
-}
-
-.real-accessability-actions a:hover:before,
-.real-accessability-actions a.active:before {
-	background-position-y: bottom !important;
 }
 
 .real-accessability-actions a:hover {
@@ -174,8 +76,6 @@
 }
 
 .real-accessability-actions a.active {
-	background-color: #fafafa;
-	color: #063d8d;
 	-moz-box-shadow: inset 0 0 3px #ccc;
 	-webkit-box-shadow: inset 0 0 3px #ccc;
 	box-shadow: inset 0 0 3px #ccc;	
@@ -221,4 +121,5 @@
 
 .real-accessability-linkHighlight a {
 	text-decoration: underline !important;
+	font-weight: bold;
 }

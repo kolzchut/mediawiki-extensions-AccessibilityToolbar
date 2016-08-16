@@ -1,13 +1,13 @@
 {
     "name": "AccessibilityToolbar",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": [
         "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])"
     ],
     "url": "https://github.com/kolzchut/mediawiki-extensions-AccessibilityToolbar",
     "namemsg": "accessibilityToolbar",
     "descriptionmsg": "accessibilityToolbar-desc",
-    "license-name": [ "MIT", "GPL" ],
+	"license-name": "GPL-2.0+",
     "type": "other",
     "manifest_version": 1,
     "MessagesDirs": {
@@ -37,7 +37,7 @@
                 "modules/ext.accessibilityToolbar.js"
             ],
             "styles": [
-                "modules/ext.accessibilityToolbar.css"
+                "modules/ext.accessibilityToolbar.less"
             ],
 	        "templates": {
 		        "toolbar.mustache": "templates/Toolbar.mustache"

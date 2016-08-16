@@ -11,11 +11,8 @@
 	'use strict';
 
 	$.RealAccessability = function( options ) {
-		var $container = $('#real-accessability');
-		var $toggler = $container.find( '#real-accessability-btn' );
-		var $body = $('body');
-
 	    var settings = $.extend( {
+	    	rootElement: 'body',
 	        exclude: '#fb-root',
 	        markup: 'h1, h2, h3, h4, h5, h6, span, div, p, a, input, textarea, li, i',	
 	        hideOnScroll: true,
@@ -23,7 +20,12 @@
 			fontSizeStepMin: 0,
 			fontSizeStepBy: 2
 		}, options );
-	    
+
+		var $container = $('#real-accessability');
+		var $toggler = $container.find( '#real-accessability-btn' );
+		var $icons = $toggler.children();
+		var $rootElement = $(settings.rootElement);
+
 		var effects = [
 			'real-accessability-high-contrast',
 			'real-accessability-grayscale',
@@ -37,13 +39,19 @@
 			regularFont: false
 		};
 		
-		var mustExclude = '#content, #bodyWrapper, #main-columns, #real-accessability, #real-accessability ul, #real-accessability li, #real-accessability a, #real-accessability-body, #real-accessability h3, #real-accessability i, #real-accessability div, #wpadminbar, #wpadminbar div, #wpadminbar a, #wpadminbar ul, #wpadminbar li, #wpadminbar span';
+		var mustExclude = '#content, #bodyWrapper, #main-columns, #real-accessability, #real-accessability ul, #real-accessability li, #real-accessability a, #real-accessability-body, #real-accessability h3, #real-accessability span, #real-accessability div, #wpadminbar, #wpadminbar div, #wpadminbar a, #wpadminbar ul, #wpadminbar li, #wpadminbar span';
 		settings.exclude = mustExclude + ', ' + settings.exclude;
 		
 		// Init
-		var init = function() {	
+		var init = function() {
+			disableClicking();
+			hideOnScroll();
+			saveOnRedirect();
+
+			$toggler.find( '.real-accessability-icon' ).css('display', 'inline-block');
+			$toggler.find( '.real-accessability-loading' ).toggle();
+
 			var cookie = getCookie('real-accessability');
-			
 			if(cookie !== '') {
 				obj = JSON.parse(cookie);
 				$(settings.markup).not(settings.exclude).each(function() {
@@ -63,18 +71,18 @@
 				}
 				
 				// For themes that touched the default <?php body_class(); ?> class
-				if(!$body.hasClass(obj.effect) && obj.effect !== null) {
-					$body.addClass(obj.effect);
+				if(!$rootElement.hasClass(obj.effect) && obj.effect !== null) {
+					$rootElement.addClass(obj.effect);
 					$('#'+obj.effect).addClass('active');
 				}
 				
-				if(!$body.hasClass(obj.linkHighlight) && obj.linkHighlight === true) {
-					$body.addClass('real-accessability-linkHighlight');
+				if(!$rootElement.hasClass(obj.linkHighlight) && obj.linkHighlight === true) {
+					$rootElement.addClass('real-accessability-linkHighlight');
 					$('#real-accessability-linkHighlight').addClass('active');
 				}
 				
-				if(!$body.hasClass(obj.regularFont) && obj.regularFont === true) {
-					$body.addClass('real-accessability-regularFont');
+				if(!$rootElement.hasClass(obj.regularFont) && obj.regularFont === true) {
+					$rootElement.addClass('real-accessability-regularFont');
 					$('#real-accessability-regularFont').addClass('active');
 				}								
 			}
@@ -109,7 +117,9 @@
 		// Open toolbar 
 		function openToolbar( eventObject ) {
 			var $parent = $(eventObject.currentTarget).parent();
-			$('.real-accessability-body').animate({width:'toggle'});
+			$('#real-accessability-body').animate({width:'toggle'});
+
+			toggleAriaExpanded( $toggler );
 
 			if( $parent.hasClass('open')) {
 				$parent.removeClass('open');
@@ -169,12 +179,12 @@
 			
 			showLoader(function() {					
 				for(var i=0; i<effects.length; i++) {
-					if(!$body.hasClass(chosenEffect) && chosenEffect === effects[i]) {
-						$body.addClass(effects[i]);
+					if(!$rootElement.hasClass(chosenEffect) && chosenEffect === effects[i]) {
+						$rootElement.addClass(effects[i]);
 						$('#'+effects[i]).addClass('active');
 						obj.effect = effects[i];
 					} else {
-						$body.removeClass(effects[i]);
+						$rootElement.removeClass(effects[i]);
 						$('#'+effects[i]).removeClass('active');
 					}
 				}
@@ -186,12 +196,12 @@
 			var $this = $(eventObject.currentTarget);
 			
 			showLoader(function() {
-				if($body.hasClass('real-accessability-linkHighlight')) {
-					$body.removeClass('real-accessability-linkHighlight');
+				if($rootElement.hasClass('real-accessability-linkHighlight')) {
+					$rootElement.removeClass('real-accessability-linkHighlight');
 					$this.removeClass('active');
 					obj.linkHighlight = false;
 				} else {
-					$body.addClass('real-accessability-linkHighlight');
+					$rootElement.addClass('real-accessability-linkHighlight');
 					$this.addClass('active');
 					obj.linkHighlight = true;
 				}	
@@ -202,7 +212,7 @@
 		// Reset all
 		var reset = function() {
 			showLoader(function() {
-				$container.find('.real-accessability-actions a').removeClass('active');
+				$container.find('.real-accessability-actions a').removeClass('active disabled');
 				
 				$(settings.markup).not(settings.exclude).each(function() {
 					var fontSize = parseInt( $(this).data('raofz') );
@@ -210,7 +220,7 @@
 				});
 
 				// Remove any class that starts with "real-accessability-"
-				$body.removeClass( function( index, className ) {
+				$rootElement.removeClass( function(index, className ) {
 					return (className.match (/(^|\s)real-accessability-\S+/g) || []).join(' ');
 				});
 				
@@ -224,6 +234,12 @@
 				$('#real-accessability-smallerFont').addClass( 'disabled' );
 			});
 		};
+
+		var toggleAriaExpanded = function( $element ) {
+			$element.attr('aria-expanded', function (i, attr) {
+				return attr !== 'true';
+			});
+		};
 		
 		// Disable clicking on toolbar links
 		var disableClicking = function() {
@@ -231,17 +247,15 @@
 				e.preventDefault();
 			});
 		};
-		
+
 		var showLoader = function(callback) {
-				$('a#real-accessability-btn i.real-accessability-icon').css('display', 'none');
-				$('a#real-accessability-btn i.real-accessability-loading').show();
-				setTimeout(function() { 
-					callback();
-					$('a#real-accessability-btn i.real-accessability-loading').hide();
-					$('a#real-accessability-btn i.real-accessability-icon').show();
-				}, 300);
+			$icons.toggle(); // Toggle both icons;
+			setTimeout(function() {
+				callback();
+				$icons.toggle();
+			}, 300);
 		};
-		
+
 		// Hide toolbar when scrolling
 		var hideOnScroll = function() {
 			if(settings.hideOnScroll) {
@@ -261,9 +275,6 @@
 		};
 		
 		init();
-		disableClicking();
-		hideOnScroll();
-		saveOnRedirect();
 
 	};
 

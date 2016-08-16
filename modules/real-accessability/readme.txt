@@ -26,17 +26,6 @@ Real Accessability plugin adds very easy to use & intuitive accessability toolba
 * Add role="link" to links
 * RTL & LTR Support
 
-**Available languages:**
-
-* English
-* Hebrew
-
-== Installation ==
-
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Go to your website, you will see the accessability toolbar
-
 == Changelog ==
 
 = 1.0 =

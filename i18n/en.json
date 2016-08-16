@@ -7,6 +7,7 @@
     "accessibilityToolbar": "Accessibility Toolbar",
     "accessibilityToolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
 	"a11ytoolbar-header": "Accessibility menu",
+	"a11ytoolbar-close-btn": "Close",
 	"a11ytoolbar-btn-text": "Accessibility",
 	"a11ytoolbar-btn-tooltip": "Click for accessibility and display options",
 	"a11ytoolbar-increase-font": "Increase text size",
