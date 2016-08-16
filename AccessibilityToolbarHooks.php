@@ -50,6 +50,7 @@ class AccessibilityToolbarHooks {
 	
 	private function getTemplateMessages() {
 		return array(
+			'msg-a11ytoolbar-btn-tooltip' => wfMessage( 'a11ytoolbar-btn-tooltip' )->text(),
 			'msg-a11ytoolbar-header' => wfMessage( 'a11ytoolbar-header' )->text(),
 			'msg-a11ytoolbar-increase-font' => wfMessage( 'a11ytoolbar-increase-font' )->text(),
 			'msg-a11ytoolbar-decrease-font' => wfMessage( 'a11ytoolbar-decrease-font' )->text(),
