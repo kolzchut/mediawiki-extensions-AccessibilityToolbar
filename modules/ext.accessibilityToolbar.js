@@ -7,7 +7,7 @@
 
 	jQuery( document ).ready(function() {
 		jQuery.RealAccessability({
-			rootElement: '#bodyWrapper',
+			rootElement: '.mw-body',
 			hideOnScroll: false
 		});
 	});
