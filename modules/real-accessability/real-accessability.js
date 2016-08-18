@@ -54,7 +54,7 @@
 			var cookie = getCookie('real-accessability');
 			if(cookie !== '') {
 				obj = JSON.parse(cookie);
-				$(settings.markup).not(settings.exclude).each(function() {
+				$rootElement.find(settings.markup).not(settings.exclude).each(function() {
 					var fontSize = parseInt( $(this).css('font-size') );
 					$(this).attr('data-raofz', fontSize);
 				});
