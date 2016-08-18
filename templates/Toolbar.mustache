@@ -1,43 +1,43 @@
 <div id="real-accessability" {{#if button-position}}class="{{button-position}}"{{/if}}>
 	<a href="#" id="real-accessability-btn" title="{{msg-a11ytoolbar-btn-tooltip}}" aria-label="{{msg-a11ytoolbar-btn-tooltip}}" aria-expanded="false" aria-controls="real-accessability-body">
-		<span class="real-accessability-loading fa fa-spinner fa-spin" aria-hidden="true"></span>
-		<span class="real-accessability-icon fa fa-universal-access"></span>
+		<span class="real-accessability-loading fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></span>
+		<span class="real-accessability-icon fa fa-universal-access fa-fw"></span>
 	</a>
 
 	<div id="real-accessability-body" class="panel panel-default">
 		<div class="panel-heading">
 			<button type="button" class="close" data-dismiss="modal" aria-label="{{msg-a11ytoolbar-close-btn}}" title="{{msg-a11ytoolbar-close-btn}}"><span aria-hidden="true">&times;</span></button>
-			<h3 class="panel-title">{{msg-a11ytoolbar-header}}</h3>
+			<h2 class="panel-title">{{msg-a11ytoolbar-header}}</h2>
 		</div>
 		<div class="real-accessability-actions list-group">
-			<a aria-role="button" href="#" class="list-group-item" id="real-accessability-biggerFont">
+			<button type="button" class="list-group-item" id="real-accessability-biggerFont">
 				<span class="fa fa-fw fa-plus" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-increase-font}}
-			</a>
-			<a aria-role="button" href="#" class="list-group-item disabled" id="real-accessability-smallerFont">
+				<span>{{msg-a11ytoolbar-increase-font}}</span>
+			</button>
+			<button type="button" class="list-group-item disabled" id="real-accessability-smallerFont">
 				<span class="fa fa-fw fa-minus" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-decrease-font}}
-			</a>
-			<a aria-role="button" href="#" class="list-group-item real-accessability-effect" href="#" id="real-accessability-high-contrast" data-filter="contrast">
+				<span>{{msg-a11ytoolbar-decrease-font}}</span>
+			</button>
+			<button type="button" class="list-group-item real-accessability-effect" id="real-accessability-high-contrast" data-filter="contrast">
 				<span class="fa fa-fw fa-sun-o" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-filter-high-contrast}}
-			</a>
-			<a aria-role="button" href="#" class="list-group-item real-accessability-effect" href="#" id="real-accessability-grayscale" data-filter="greyscale">
-				<span class="fa fa-fw fa-tint" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-filter-bw}}
-			</a>
-			<a aria-role="button" href="#" class="list-group-item real-accessability-effect" href="#" id="real-accessability-invert" data-filter="invert">
+				<span>{{msg-a11ytoolbar-filter-high-contrast}}</span>
+			</button>
+			<button type="button" class="list-group-item real-accessability-effect" id="real-accessability-invert" data-filter="invert">
 				<span class="fa fa-fw fa-adjust" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-filter-invert}}
-			</a>
-			<a aria-role="button" href="#" class="list-group-item" id="real-accessability-linkHighlight">
+				<span>{{msg-a11ytoolbar-filter-invert}}</span>
+			</button>
+			<button type="button" class="list-group-item real-accessability-effect" id="real-accessability-grayscale" data-filter="greyscale">
+				<span class="fa fa-fw fa-tint" aria-hidden="true"></span>
+				<span>{{msg-a11ytoolbar-filter-grayscale}}</span>
+			</button>
+			<button type="button" class="list-group-item" id="real-accessability-linkHighlight">
 				<span class="fa fa-fw fa-underline" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-highlight-links}}
-			</a>
-			<a aria-role="button" href="#" class="list-group-item" id="real-accessability-reset">
+				<span>{{msg-a11ytoolbar-highlight-links}}</span>
+			</button>
+			<button type="button" class="list-group-item" id="real-accessability-reset">
 				<span class="fa fa-fw fa-undo" aria-hidden="true"></span>
-				{{msg-a11ytoolbar-reset-settings}}
-			</a>
+				<span>{{msg-a11ytoolbar-reset-settings}}</span>
+			</button>
 		</div>
 		{{#if accessibility-statement-url}}
 			<div class="panel-footer" id="real-accessability-statement"><a href="{{accessibility-statement-url}}">{{msg-a11ytoolbar-statement}}</a></div>
