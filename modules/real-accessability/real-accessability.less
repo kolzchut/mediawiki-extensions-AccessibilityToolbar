@@ -1,3 +1,12 @@
+/* IE10-IE11 do not support filters, so we just don't show them in these browsers */
+/* The following is a CSS hack to target ONLY IE10 & IE11: */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.real-accessability-effect {
+		display: none;
+	}
+}
+
+
 #real-accessability-body {
 	display: none;
 	margin-bottom: 0; /* Proof against other styling, such as Bootstrap's .panel */
