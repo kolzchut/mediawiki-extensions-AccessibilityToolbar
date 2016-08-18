@@ -56,7 +56,7 @@ class AccessibilityToolbarHooks {
 			'msg-a11ytoolbar-increase-font' => wfMessage( 'a11ytoolbar-increase-font' )->text(),
 			'msg-a11ytoolbar-decrease-font' => wfMessage( 'a11ytoolbar-decrease-font' )->text(),
 			'msg-a11ytoolbar-filter-high-contrast' => wfMessage( 'a11ytoolbar-filter-high-contrast' )->text(),
-			'msg-a11ytoolbar-filter-bw' => wfMessage( 'a11ytoolbar-filter-bw' )->text(),
+			'msg-a11ytoolbar-filter-grayscale' => wfMessage( 'a11ytoolbar-filter-grayscale' )->text(),
 			'msg-a11ytoolbar-filter-invert' => wfMessage( 'a11ytoolbar-filter-invert' )->text(),
 			'msg-a11ytoolbar-highlight-links' => wfMessage( 'a11ytoolbar-highlight-links' )->text(),
 			'msg-a11ytoolbar-reset-settings' => wfMessage( 'a11ytoolbar-reset-settings' )->text(),
