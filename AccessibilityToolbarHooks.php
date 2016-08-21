@@ -29,6 +29,10 @@ class AccessibilityToolbarHooks {
 		$data[ 'accessibility-statement-url'] = self::getStatementUrl();
 		if( in_array( $wgAccessibilityToolbarPosition, array( "top", "bottom" ) ) ) {
 			$data[ 'button-position' ] = $wgAccessibilityToolbarPosition;
+		} else {
+			throw new MWException(
+				'$wgAccessibilityToolbarPosition is set to an invalid value ("' . $wgAccessibilityToolbarPosition . '"")'
+			);
 		}
 
 		//echo '<pre dir="ltr">';
