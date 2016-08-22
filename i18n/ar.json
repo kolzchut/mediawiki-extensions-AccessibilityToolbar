@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bayan Majadly"
+		]
+	},
+	"accessibilityToolbar": "Accessibility Toolbar",
+	"accessibilityToolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
+	"a11ytoolbar-header": "قائمة المتاحية",
+	"a11ytoolbar-close-btn": "إغلاق",
+	"a11ytoolbar-btn-text": "متاحية",
+	"a11ytoolbar-btn-tooltip": "إضغطوا لإمكانيات المتاحية والعرض",
+	"a11ytoolbar-increase-font": "تكبير النص",
+	"a11ytoolbar-decrease-font": "تصغير النص",
+	"a11ytoolbar-filter-high-contrast": "تباين عالي للالوان\n(ניגודיות צבעים גבוהה)",
+	"a11ytoolbar-filter-grayscale": "إمكانيات اللون الرمادي\n(גווני אפור)",
+	"a11ytoolbar-filter-invert": "عكس الألوان\n(היפוך צבעים)",
+	"a11ytoolbar-highlight-links": "تشديد على الروابط\n(הדגשת קישורים)",
+	"a11ytoolbar-reset-settings": "تصفير التعريفات\n(איפוס ההגדרות)",
+	"a11ytoolbar-statement": "تصريح المتاحية",
+	"a11ytoolbar-statement-page": "Project:متاحية"
+}
