@@ -48,6 +48,7 @@
 			hideOnScroll();
 			saveOnRedirect();
 
+			$container.css( 'display', 'block' ); // Hidden inline by default
 			$toggler.find( '.real-accessability-icon' ).css('display', 'inline-block');
 			$toggler.find( '.real-accessability-loading' ).toggle();
 
