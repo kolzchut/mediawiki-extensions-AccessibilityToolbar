@@ -51,8 +51,8 @@ class AccessibilityToolbarHooks {
 
 	}
 
-	
-	private function getTemplateMessages() {
+
+	private static function getTemplateMessages() {
 		return array(
 			'msg-a11ytoolbar-btn-tooltip' => wfMessage( 'a11ytoolbar-btn-tooltip' )->text(),
 			'msg-a11ytoolbar-header' => wfMessage( 'a11ytoolbar-header' )->text(),
@@ -65,11 +65,11 @@ class AccessibilityToolbarHooks {
 			'msg-a11ytoolbar-highlight-links' => wfMessage( 'a11ytoolbar-highlight-links' )->text(),
 			'msg-a11ytoolbar-reset-settings' => wfMessage( 'a11ytoolbar-reset-settings' )->text(),
 			'msg-a11ytoolbar-statement' => wfMessage( 'a11ytoolbar-statement' )->text()
-       );
+		);
 
 	}
 
-	private function getStatementUrl() {
+	private static function getStatementUrl() {
 		$statementPageMsg = wfMessage( 'a11ytoolbar-statement-page' );
 		if ( $statementPageMsg->isDisabled() ) {
 			return null;
