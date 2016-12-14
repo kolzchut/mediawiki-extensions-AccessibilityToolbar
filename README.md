@@ -41,8 +41,18 @@ current user settings.
 - `$wgAccessibilityToolbarPosition` = "top" / "bottom"
     Whether the toggle button and toolbar will be absolutely positioned
     at the top-left or bottom-left (or top-right, etc. for RTL languages).
+- `$wgAccessibilityToolbarIconColor` = '#fff'
+    Allows you to customize the color of the icon. The default is null,
+    so the icon will be the defualt link color on your site.
+    Set this to any valid color hex code (either 3- or 6-digits),
+    including the hash tag.
 
+    Instead of using this, you can also override the color using CSS,
+    which allows the override to be per-skin:
 
+        #real-accessability-btn {
+            color: #ccc;
+        }
 
 ## Other sources of inspiration
 - [fluid project][fluid]'s display preferences
@@ -67,5 +77,10 @@ current user settings.
 [GPL-2.0+]: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Changelog
+
+### 0.2.0
+New configuration option: $wgAccessibilityToolbarIconColor. Removed the
+default color and background color from the button in favor of this.
+
 ### 0.1.0
 This is the initial beta, unleashed on the unsuspecting world.

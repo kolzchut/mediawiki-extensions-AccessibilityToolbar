@@ -23,11 +23,11 @@ class AccessibilityToolbarHooks {
 	}
 
 	public static function onSkinAfterBottomScripts( \Skin $skin, &$text ) {
-		global $wgAccessibilityToolbarPosition;
+		global $wgAccessibilityToolbarPosition, $wgAccessibilityToolbarIconColor;
 
 		$data = self::getTemplateMessages();
 		$data[ 'accessibility-statement-url'] = self::getStatementUrl();
-		if( in_array( $wgAccessibilityToolbarPosition, array( "top", "bottom" ) ) ) {
+		if ( in_array( $wgAccessibilityToolbarPosition, array( "top", "bottom" ) ) ) {
 			$data[ 'button-position' ] = $wgAccessibilityToolbarPosition;
 		} else {
 			throw new MWException(
@@ -35,11 +35,18 @@ class AccessibilityToolbarHooks {
 			);
 		}
 
+		if ( $wgAccessibilityToolbarIconColor !== null
+			 && self::validateHexColor( $wgAccessibilityToolbarIconColor )
+		) {
+			$data[ 'icon-color' ] = $wgAccessibilityToolbarIconColor;
+		}
+
+
 		//echo '<pre dir="ltr">';
 		//print_r( $data );
 		//echo '</pre>';
 
-		$templateParser = new \TemplateParser(  __DIR__ . '/templates' );
+		$templateParser = new \TemplateParser( __DIR__ . '/templates' );
 		$toolbarWidget = $templateParser->processTemplate(
 			'Toolbar',
 			$data
@@ -67,6 +74,15 @@ class AccessibilityToolbarHooks {
 			'msg-a11ytoolbar-statement' => wfMessage( 'a11ytoolbar-statement' )->text()
 		);
 
+	}
+
+	private static function validateHexColor( $color ) {
+		if ( preg_match( '/#([a-f0-9]{3}){1,2}\b/i', $color ) ) {
+			// hex color is valid
+			return true;
+		}
+
+		return false;
 	}
 
 	private static function getStatementUrl() {
