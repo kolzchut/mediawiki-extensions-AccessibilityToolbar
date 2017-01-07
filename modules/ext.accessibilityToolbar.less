@@ -1,10 +1,10 @@
-// Hide the widget in small screen
 #real-accessability {
+	// Start hidden, toggled by Javascript
 	display: none;
 
-	// Show it once we reach a larger screen size
-	@media @screen-sm {
-		display: block;
+	// Keep the widget hidden on smaller screens
+	@media (max-width: @screen-sm-min ) {
+		display: none !important;
 	}
 
 	@media print {
