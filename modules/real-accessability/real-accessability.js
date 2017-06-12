@@ -41,7 +41,7 @@
 		
 		var mustExclude = '#content, #bodyWrapper, #main-columns, #real-accessability, #real-accessability ul, #real-accessability li, #real-accessability a, #real-accessability-body, #real-accessability h3, #real-accessability span, #real-accessability div, #wpadminbar, #wpadminbar div, #wpadminbar a, #wpadminbar ul, #wpadminbar li, #wpadminbar span';
 		settings.exclude = mustExclude + ', ' + settings.exclude;
-		
+
 		// Init
 		var init = function() {
 			disableClicking();
@@ -117,17 +117,13 @@
 		
 		// Open toolbar 
 		function openToolbar( eventObject ) {
-			var $parent = $(eventObject.currentTarget).parent();
-			$('#real-accessability-body').animate({width:'toggle'});
-
 			toggleAriaExpanded( $toggler );
 
-			if( $parent.hasClass('open')) {
-				$parent.removeClass('open');
+			if( $container.hasClass('open')) {
+				$container.removeClass('open');
 			} else {
-
-				$parent.addClass('open');
-				if(getCookie('real-accessability') === '') {
+				$container.addClass('open');
+				if( getCookie('real-accessability') === '' ) {
 					$(settings.markup).not(settings.exclude).each(function() {
 						var fontSize = parseInt( $(this).css('font-size') );
 						$(this).attr('data-raofz', fontSize);

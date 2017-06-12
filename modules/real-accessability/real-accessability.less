@@ -6,20 +6,24 @@
 	}
 }
 
-
 #real-accessability-body {
-	display: none;
 	margin-bottom: 0; /* Proof against other styling, such as Bootstrap's .panel */
+	width: 15em;
 }
 
 #real-accessability {
 	position: fixed;
-	right: 0;
+	right: -15em;
 	min-height: 35px;
 	z-index: 9999;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	transition: right 0.3s;
+
+	&.open {
+		right: 0;
+	}
 
 	&.top {
 		top: 0;
@@ -68,9 +72,6 @@
 	display: none;
 }
 
-#real-accessability.open {
-	right: 0;
-}
 
 .real-accessability-actions a:hover {
 	background-color: #fafafa;
