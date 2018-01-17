@@ -37,6 +37,7 @@
 	        ]
         },
         "ext.accessibilityToolbar": {
+	        "class": "HelenaResourceLoaderModule",
             "scripts": [
                 "modules/ext.accessibilityToolbar.js"
             ],
