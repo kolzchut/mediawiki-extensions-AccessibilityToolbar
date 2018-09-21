@@ -37,7 +37,8 @@
 	        ]
         },
         "ext.accessibilityToolbar": {
-            "scripts": [
+	        "class": "HelenaResourceLoaderModule",
+	        "scripts": [
                 "modules/ext.accessibilityToolbar.js"
             ],
             "styles": [
@@ -49,7 +50,8 @@
             "messages": [
             ],
             "dependencies": [
-                "real-accessability"
+                "real-accessability",
+	            "skins.helena.bootstrapOverride"
             ],
 	        "targets": [
 		        "desktop"
