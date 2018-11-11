@@ -38,9 +38,12 @@ current user settings.
 
 
 ## Configuration
-- `$wgAccessibilityToolbarPosition` = "top" / "bottom"
+- `$wgAccessibilityToolbarPosition` = "top" / "bottom" / "none"
     Whether the toggle button and toolbar will be absolutely positioned
     at the top-left or bottom-left (or top-right, etc. for RTL languages).
+    Setting this to "none" means that you must render the menu yourself;
+    add your own button and make it toggle the menu (which you get by
+    calling `AccessibilityToolbar->getHtml()`).
 - `$wgAccessibilityToolbarIconColor` = '#fff'
     Allows you to customize the color of the icon. The default is null,
     so the icon will be the defualt link color on your site.

@@ -16,11 +16,13 @@
         ]
     },
     "AutoloadClasses": {
+	    "AccessibilityToolbar": "AccessibilityToolbar.php",
 	    "AccessibilityToolbarHooks": "AccessibilityToolbarHooks.php"
     },
 	"config": {
 		"AccessibilityToolbarPosition": "top",
-		"AccessibilityToolbarIconColor": null
+		"AccessibilityToolbarIconColor": null,
+		"AccessibilityToolbarDisableButton": false
 	},
 	"ResourceModules": {
         "real-accessability": {
