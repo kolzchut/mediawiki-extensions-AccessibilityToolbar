@@ -1,3 +1,5 @@
+( function ( mw, $ ) {
+	'use strict';
 	/**
 	 * @class mw.accessibilityToolbar
 	 * @singleton
@@ -5,9 +7,10 @@
 	mw.accessibilityToolbar = {
 	};
 
-	jQuery( document ).ready(function() {
-		jQuery.RealAccessability({
-			rootElement: '.mw-body',
+	$( document ).ready( function() {
+		$.RealAccessability( {
+			rootElement: '#bodyWrapper',
 			hideOnScroll: false
-		});
-	});
+		} );
+	} );
+}( mediaWiki, $ ) );
