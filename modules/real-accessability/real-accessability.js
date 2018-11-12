@@ -209,7 +209,7 @@
 		// Reset all
 		var reset = function() {
 			showLoader(function() {
-				$container.find('.real-accessability-actions a').removeClass('active disabled');
+				$('.real-accessability-actions').children().removeClass('active disabled');
 				
 				$(settings.markup).not(settings.exclude).each(function() {
 					var fontSize = parseInt( $(this).data('raofz') );
@@ -240,7 +240,7 @@
 		
 		// Disable clicking on toolbar links
 		var disableClicking = function() {
-			$container.find('.real-accessability-actions a').bind('click', function(e) {
+			$('.real-accessability-actions').children().bind('click', function(e) {
 				e.preventDefault();
 			});
 		};
