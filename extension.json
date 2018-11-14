@@ -52,8 +52,7 @@
             "messages": [
             ],
             "dependencies": [
-                "real-accessability",
-	            "skins.helena.bootstrapOverride"
+                "real-accessability"
             ],
 	        "targets": [
 		        "desktop"
