@@ -7,10 +7,8 @@
 	mw.accessibilityToolbar = {
 	};
 
-	$( document ).ready( function() {
-		$.RealAccessability( {
-			rootElement: '#bodyWrapper',
-			hideOnScroll: false
-		} );
-	} );
+	$( document ).ready( $.RealAccessability( {
+		rootElement: '#bodyWrapper',
+		hideOnScroll: false
+	} ) );
 }( mediaWiki, $ ) );

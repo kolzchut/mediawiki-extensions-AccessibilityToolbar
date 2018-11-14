@@ -11,8 +11,8 @@ class AccessibilityToolbarHooks {
 	 * BeforePageDisplay hook
 	 * Adds the modules to the page
 	 *
-	 * @param $out OutputPage output page
-	 * @param $skin Skin current skin
+	 * @param OutputPage &$out
+	 * @param Skin &$skin current skin
 	 *
 	 * @return bool
 	 */
@@ -22,6 +22,13 @@ class AccessibilityToolbarHooks {
 		return true;
 	}
 
+	/**
+	 * @param Skin $skin
+	 * @param string &$text
+	 *
+	 * @return bool
+	 * @throws MWException
+	 */
 	public static function onSkinAfterBottomScripts( \Skin $skin, &$text ) {
 		global $wgAccessibilityToolbarPosition;
 		if ( $wgAccessibilityToolbarPosition !== 'none' ) {
@@ -31,4 +38,3 @@ class AccessibilityToolbarHooks {
 		return true;
 	}
 }
-

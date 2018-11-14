@@ -14,12 +14,13 @@ class AccessibilityToolbar {
 				$data[ 'button-position' ] = $wgAccessibilityToolbarPosition;
 			} else {
 				throw new MWException(
-					'$wgAccessibilityToolbarPosition is set to an invalid value ("' . $wgAccessibilityToolbarPosition . '"")'
+					'$wgAccessibilityToolbarPosition is set to an invalid value ("' .
+					$wgAccessibilityToolbarPosition . '"")'
 				);
 			}
 
 			if ( $wgAccessibilityToolbarIconColor !== null
-			     && self::validateHexColor( $wgAccessibilityToolbarIconColor )
+				 && self::validateHexColor( $wgAccessibilityToolbarIconColor )
 			) {
 				$data[ 'icon-color' ] = $wgAccessibilityToolbarIconColor;
 			}
@@ -36,26 +37,36 @@ class AccessibilityToolbar {
 		}
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getHtml() {
 		return $this->html;
 	}
 
-
+	/**
+	 * @return array
+	 */
 	private static function getTemplateMessages() {
-		return [
-			'msg-a11ytoolbar-btn-tooltip' => wfMessage( 'a11ytoolbar-btn-tooltip' )->text(),
-			'msg-a11ytoolbar-header' => wfMessage( 'a11ytoolbar-header' )->text(),
-			'msg-a11ytoolbar-close-btn' => wfMessage( 'a11ytoolbar-close-btn' )->text(),
-			'msg-a11ytoolbar-increase-font' => wfMessage( 'a11ytoolbar-increase-font' )->text(),
-			'msg-a11ytoolbar-decrease-font' => wfMessage( 'a11ytoolbar-decrease-font' )->text(),
-			'msg-a11ytoolbar-filter-high-contrast' => wfMessage( 'a11ytoolbar-filter-high-contrast' )->text(),
-			'msg-a11ytoolbar-filter-grayscale' => wfMessage( 'a11ytoolbar-filter-grayscale' )->text(),
-			'msg-a11ytoolbar-filter-invert' => wfMessage( 'a11ytoolbar-filter-invert' )->text(),
-			'msg-a11ytoolbar-highlight-links' => wfMessage( 'a11ytoolbar-highlight-links' )->text(),
-			'msg-a11ytoolbar-reset-settings' => wfMessage( 'a11ytoolbar-reset-settings' )->text(),
-			'msg-a11ytoolbar-statement' => wfMessage( 'a11ytoolbar-statement' )->text()
+		$messageNames = [
+			'a11ytoolbar-btn-tooltip',
+			'a11ytoolbar-header',
+			'a11ytoolbar-close-btn',
+			'a11ytoolbar-increase-font',
+			'a11ytoolbar-decrease-font',
+			'a11ytoolbar-filter-high-contrast',
+			'a11ytoolbar-filter-grayscale',
+			'a11ytoolbar-filter-invert',
+			'a11ytoolbar-highlight-links',
+			'a11ytoolbar-reset-settings',
+			'a11ytoolbar-statement'
 		];
+		$messages = [];
+		foreach ( $messageNames as $name ) {
+			$messages[ 'msg-' . $name ] = wfMessage( $name )->text();
+		}
 
+		return $messages;
 	}
 
 	private static function validateHexColor( $color ) {
@@ -76,7 +87,5 @@ class AccessibilityToolbar {
 
 		return ( $title === null ? null : $title->getLocalURL() );
 	}
-
-
 
 }
