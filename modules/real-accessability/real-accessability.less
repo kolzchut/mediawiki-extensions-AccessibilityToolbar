@@ -1,3 +1,5 @@
+@import 'mediawiki.mixins';
+
 /* IE10-IE11 do not support filters, so we just don't show them in these browsers */
 /* The following is a CSS hack to target ONLY IE10 & IE11: */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -113,13 +115,9 @@
 		color: #000;
 	}
 
-	::-webkit-input-placeholder,
-	:-moz-placeholder,
-	::-moz-placeholder,
-	:-ms-input-placeholder {
+	.mixin-placeholder( {
 		color: #000!important;
-	}
-
+	})
 }
 
 .real-accessability-linkHighlight a {
