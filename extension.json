@@ -1,74 +1,74 @@
 {
-    "name": "AccessibilityToolbar",
-    "version": "0.2.0",
-    "author": [
-        "Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])"
-    ],
-    "url": "https://github.com/kolzchut/mediawiki-extensions-AccessibilityToolbar",
-    "namemsg": "accessibilityToolbar",
-    "descriptionmsg": "accessibilityToolbar-desc",
+	"name": "AccessibilityToolbar",
+	"version": "0.2.0",
+	"author": [
+		"Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])"
+	],
+	"url": "https://github.com/kolzchut/mediawiki-extensions-AccessibilityToolbar",
+	"namemsg": "accessibilityToolbar",
+	"descriptionmsg": "accessibilityToolbar-desc",
 	"license-name": "GPL-2.0+",
-    "type": "other",
-    "manifest_version": 1,
-    "MessagesDirs": {
-        "AccessibilityToolbar": [
-            "i18n"
-        ]
-    },
-    "AutoloadClasses": {
-	    "AccessibilityToolbar": "AccessibilityToolbar.php",
-	    "AccessibilityToolbarHooks": "AccessibilityToolbarHooks.php"
-    },
+	"type": "other",
+	"manifest_version": 1,
+	"MessagesDirs": {
+		"AccessibilityToolbar": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"AccessibilityToolbar": "AccessibilityToolbar.php",
+		"AccessibilityToolbarHooks": "AccessibilityToolbarHooks.php"
+	},
 	"config": {
 		"AccessibilityToolbarPosition": "top",
 		"AccessibilityToolbarIconColor": null,
 		"AccessibilityToolbarDisableButton": false
 	},
 	"ResourceModules": {
-        "real-accessability": {
-            "scripts": [
-                "modules/real-accessability/real-accessability.js"
-            ],
-            "styles": [
-                "modules/real-accessability/real-accessability.less"
-            ],
-            "messages": [
-            ],
-	        "targets": [
-		        "desktop"
-	        ]
-        },
-        "ext.accessibilityToolbar": {
-	        "class": "HelenaResourceLoaderModule",
-	        "scripts": [
-                "modules/ext.accessibilityToolbar.js"
-            ],
-            "styles": [
-                "modules/ext.accessibilityToolbar.less"
-            ],
-	        "templates": {
-		        "toolbar.mustache": "templates/Toolbar.mustache"
-	        },
-            "messages": [
-            ],
-            "dependencies": [
-                "real-accessability"
-            ],
-	        "targets": [
-		        "desktop"
-	        ]
-        }
-    },
+		"real-accessability": {
+			"scripts": [
+				"modules/real-accessability/real-accessability.js"
+			],
+			"styles": [
+				"modules/real-accessability/real-accessability.less"
+			],
+			"messages": [
+			],
+			"targets": [
+				"desktop"
+			]
+		},
+		"ext.accessibilityToolbar": {
+			"class": "HelenaResourceLoaderModule",
+			"scripts": [
+				"modules/ext.accessibilityToolbar.js"
+			],
+			"styles": [
+				"modules/ext.accessibilityToolbar.less"
+			],
+			"templates": {
+				"toolbar.mustache": "templates/Toolbar.mustache"
+			},
+			"messages": [
+			],
+			"dependencies": [
+				"real-accessability"
+			],
+			"targets": [
+				"desktop"
+			]
+		}
+	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteExtPath": "AccessibilityToolbar"
 	},
-    "Hooks": {
-        "BeforePageDisplay": [
-	        "AccessibilityToolbarHooks::onBeforePageDisplay"
-        ],
-	    "SkinAfterBottomScripts": [
-		    "AccessibilityToolbarHooks::onSkinAfterBottomScripts"
-	    ]
-    }
+	"Hooks": {
+		"BeforePageDisplay": [
+			"AccessibilityToolbarHooks::onBeforePageDisplay"
+		],
+		"SkinAfterBottomScripts": [
+			"AccessibilityToolbarHooks::onSkinAfterBottomScripts"
+		]
+	}
 }

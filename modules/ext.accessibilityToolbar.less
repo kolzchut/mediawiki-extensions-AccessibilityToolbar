@@ -3,12 +3,13 @@
 	display: none;
 
 	// Keep the widget hidden on smaller screens
-	@media (max-width: @screen-sm-min ) {
+	@media ( max-width: @screen-sm-min ) {
+		/* stylelint-disable-next-line declaration-no-important */
 		display: none !important;
 	}
 
 	@media print {
+		/* stylelint-disable-next-line declaration-no-important */
 		display: none !important;
 	}
 }
-

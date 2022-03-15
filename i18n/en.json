@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dror S. [FFS]"
-        ]
-    },
-    "accessibilityToolbar": "Accessibility Toolbar",
-    "accessibilityToolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
+	"@metadata": {
+		"authors": [
+			"Dror S. [FFS]"
+		]
+	},
+	"accessibilitytoolbar": "Accessibility Toolbar",
+	"accessibilitytoolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
 	"a11ytoolbar-header": "Accessibility menu",
 	"a11ytoolbar-close-btn": "Close",
 	"a11ytoolbar-btn-text": "Accessibility",

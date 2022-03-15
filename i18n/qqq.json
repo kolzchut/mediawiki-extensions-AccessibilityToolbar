@@ -1,9 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dror S. [FFS]"
-        ]
-    },
-    "accessibilityToolbar": "The name of the extension",
-    "accessibilityToolbar-desc": "{{desc|name=AccessibilityToolbar|url=https://github.com/kolzchut/mediawiki-extensions-AccessibilityToolbar}}"
+	"@metadata": {
+		"authors": [
+			"Dror S. [FFS]"
+		]
+	},
+	"accessibilitytoolbar": "The name of the extension",
+	"accessibilitytoolbar-desc": "{{desc|name=AccessibilityToolbar|url=https://github.com/kolzchut/mediawiki-extensions-AccessibilityToolbar}}",
+	"a11ytoolbar-header": "The header of the menu when opened",
+	"a11ytoolbar-close-btn": "Alt text for the close button",
+	"a11ytoolbar-btn-text": "Text for the opening button",
+	"a11ytoolbar-btn-tooltip": "Tooltip for the opening button",
+	"a11ytoolbar-increase-font": "Increase text size",
+	"a11ytoolbar-decrease-font": "Decrease text size",
+	"a11ytoolbar-filter-high-contrast": "High Contrast",
+	"a11ytoolbar-filter-grayscale": "Grayscale",
+	"a11ytoolbar-filter-invert": "Inverse Colors",
+	"a11ytoolbar-highlight-links": "Highlight Links",
+	"a11ytoolbar-reset-settings": "Reset Settings",
+	"a11ytoolbar-statement": "Accessibility Statement",
+	"a11ytoolbar-statement-page": "Wikipage where the a11y statement can be found"
 }

@@ -1,4 +1,4 @@
-( function ( mw, $ ) {
+( function () {
 	'use strict';
 	/**
 	 * @class mw.accessibilityToolbar
@@ -7,8 +7,10 @@
 	mw.accessibilityToolbar = {
 	};
 
-	$( document ).ready( $.RealAccessability( {
-		rootElement: '#bodyWrapper',
-		hideOnScroll: false
-	} ) );
-}( mediaWiki, $ ) );
+	$( function () {
+		$.RealAccessability( {
+			rootElement: '#bodyWrapper',
+			hideOnScroll: false
+		} );
+	} );
+}() );

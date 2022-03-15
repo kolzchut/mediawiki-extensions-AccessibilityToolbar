@@ -4,8 +4,8 @@
 			"Bayan Majadly"
 		]
 	},
-	"accessibilityToolbar": "Accessibility Toolbar",
-	"accessibilityToolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
+	"accessibilitytoolbar": "Accessibility Toolbar",
+	"accessibilitytoolbar-desc": "Accessibility tools that somewhat duplicate browser abilities - enlarge text, change contrast, etc.\nBased on [https://wordpress.org/plugins/real-accessability/ Real Accessability] Wordpress plugin by [http://realmedia.co.il RealMedia].",
 	"a11ytoolbar-header": "قائمة المتاحية",
 	"a11ytoolbar-close-btn": "إغلاق",
 	"a11ytoolbar-btn-text": "متاحية",

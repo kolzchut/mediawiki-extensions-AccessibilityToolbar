@@ -4,8 +4,8 @@
 			"Dror S. [FFS]"
 		]
 	},
-	"accessibilityToolbar": "תפריט כלי נגישות",
-	"accessibilityToolbar-desc": "כלי נגישות המשכפלים במידת-מה את יכולות הדפדפן - הגדלת טקסט, שינוי ניגודיות וכד'.\nמבוסס על התוסף לוורדפרס [https://wordpress.org/plugins/real-accessability/ Real Accessability] של [http://realmedia.co.il RealMedia].",
+	"accessibilitytoolbar": "תפריט כלי נגישות",
+	"accessibilitytoolbar-desc": "כלי נגישות המשכפלים במידת-מה את יכולות הדפדפן - הגדלת טקסט, שינוי ניגודיות וכד'.\nמבוסס על התוסף לוורדפרס [https://wordpress.org/plugins/real-accessability/ Real Accessability] של [https://realmedia.co.il RealMedia].",
 	"a11ytoolbar-header": "תפריט נגישות",
 	"a11ytoolbar-close-btn": "סגירה",
 	"a11ytoolbar-btn-text": "נגישות",

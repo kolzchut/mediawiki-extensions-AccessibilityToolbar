@@ -6,7 +6,7 @@
  * Dual licensed under the MIT and GPL licenses.
  */
 
-( function ( $ ) {
+( function () {
 	'use strict';
 
 	$.RealAccessability = function ( options ) {
@@ -19,7 +19,6 @@
 				fontSizeStepMin: 0,
 				fontSizeStepBy: 2
 			}, options ),
-
 			$container = $( '#real-accessability' ),
 			$toggler = $container.find( '#real-accessability-btn' ),
 			$icons = $toggler.children(),
@@ -41,81 +40,32 @@
 
 		settings.exclude = mustExclude + ', ' + settings.exclude;
 
-		// Init
-		var init = function () {
-				disableClicking();
-				hideOnScroll();
-				saveOnRedirect();
+		function toggleAriaExpanded( $element ) {
+			$element.attr( 'aria-expanded', function ( i, attr ) {
+				return attr !== 'true';
+			} );
+		}
 
-				$container.css( 'display', 'block' ); // Hidden inline by default
-				$toggler.find( '.real-accessability-icon' ).css( 'display', 'inline-block' );
-				$toggler.find( '.real-accessability-loading' ).toggle();
+		// Get saved cookie option
+		function getCookie( name ) {
+			name = name + '=';
+			var arr = document.cookie.split( ';' );
 
-				var cookie = getCookie( 'real-accessability' );
-				if ( cookie !== '' ) {
-					obj = JSON.parse( cookie );
-					$rootElement.find( settings.markup ).not( settings.exclude ).each( function () {
-						var fontSize = parseInt( $( this ).css( 'font-size' ) );
-						$( this ).attr( 'data-raofz', fontSize );
-					} );
-
-					if ( obj.fontSize !== 0 ) {
-						$( settings.markup ).not( settings.exclude ).each( function () {
-							var fontSize = parseInt( $( this ).data( 'raofz' ) );
-							$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) );
-						} );
-
-						if ( obj.fontSize > 0 ) {
-							$( '#real-accessability-smallerFont' ).removeClass( 'disabled' );
-						}
-					}
-
-					// For themes that touched the default <?php body_class(); ?> class
-					if ( !$rootElement.hasClass( obj.effect ) && obj.effect !== null ) {
-						$rootElement.addClass( obj.effect );
-						$( '#' + obj.effect ).addClass( 'active' );
-					}
-
-					if ( !$rootElement.hasClass( obj.linkHighlight ) && obj.linkHighlight === true ) {
-						$rootElement.addClass( 'real-accessability-linkHighlight' );
-						$( '#real-accessability-linkHighlight' ).addClass( 'active' );
-					}
-
-					if ( !$rootElement.hasClass( obj.regularFont ) && obj.regularFont === true ) {
-						$rootElement.addClass( 'real-accessability-regularFont' );
-						$( '#real-accessability-regularFont' ).addClass( 'active' );
-					}
+			for ( var i = 0; i < arr.length; i++ ) {
+				var c = arr[ i ];
+				while ( c.charAt( 0 ) === ' ' ) {
+					c = c.substring( 1 );
 				}
-
-				$toggler.on( 'click', openToolbar );
-				$container.find( '.panel-heading .close' ).on( 'click', openToolbar );
-				$( '#real-accessability-biggerFont' ).on( 'click', increaseFont );
-				$( '#real-accessability-smallerFont' ).on( 'click', decreaseFont );
-				$( '.real-accessability-effect' ).on( 'click', effectChange );
-				$( '#real-accessability-linkHighlight' ).on( 'click', linkHighlight );
-				$( '#real-accessability-reset' ).on( 'click', reset );
-			},
-
-			// Get saved cookie option
-		 getCookie = function ( name ) {
-				name = name + '=';
-				var arr = document.cookie.split( ';' );
-
-				for ( var i = 0; i < arr.length; i++ ) {
-					var c = arr[ i ];
-					while ( c.charAt( 0 ) === ' ' ) {
-						c = c.substring( 1 );
-					}
-					if ( c.indexOf( name ) === 0 ) {
-						return c.substring( name.length, c.length );
-					}
+				if ( c.indexOf( name ) === 0 ) {
+					return c.substring( name.length, c.length );
 				}
+			}
 
-				return '';
-			};
+			return '';
+		}
 
 		// Open toolbar
-		function openToolbar( eventObject ) {
+		function openToolbar() {
 			toggleAriaExpanded( $toggler );
 
 			if ( $container.hasClass( 'open' ) ) {
@@ -129,6 +79,14 @@
 					} );
 				}
 			}
+		}
+
+		function showLoader( callback ) {
+			$icons.toggle(); // Toggle both icons;
+			setTimeout( function () {
+				callback();
+				$icons.toggle();
+			}, 300 );
 		}
 
 		// Make font bigger
@@ -176,10 +134,18 @@
 			showLoader( function () {
 				for ( var i = 0; i < effects.length; i++ ) {
 					if ( !$rootElement.hasClass( chosenEffect ) && chosenEffect === effects[ i ] ) {
+						// The following classes are used here:
+						// * real-accessability-high-contrast,
+						// * real-accessability-grayscale,
+						// * real-accessability-invert
 						$rootElement.addClass( effects[ i ] );
 						$( '#' + effects[ i ] ).addClass( 'active' );
 						obj.effect = effects[ i ];
 					} else {
+						// The following classes are used here:
+						// * real-accessability-high-contrast,
+						// * real-accessability-grayscale,
+						// * real-accessability-invert
 						$rootElement.removeClass( effects[ i ] );
 						$( '#' + effects[ i ] ).removeClass( 'active' );
 					}
@@ -215,6 +181,10 @@
 					} );
 
 					// Remove any class that starts with "real-accessability-"
+					// The following classes are used here:
+					// * real-accessability-high-contrast,
+					// * real-accessability-grayscale,
+					// * real-accessability-invert
 					$rootElement.removeClass( function ( index, className ) {
 						return ( className.match( /(^|\s)real-accessability-\S+/g ) || [] ).join( ' ' );
 					} );
@@ -230,31 +200,17 @@
 				} );
 			},
 
-		toggleAriaExpanded = function ( $element ) {
-				$element.attr( 'aria-expanded', function ( i, attr ) {
-					return attr !== 'true';
-				} );
-			},
-
 			// Disable clicking on toolbar links
-		disableClicking = function () {
+			disableClicking = function () {
 				$( '.real-accessability-actions' ).children().on( 'click', function ( e ) {
 					e.preventDefault();
 				} );
 			},
 
-		 showLoader = function ( callback ) {
-				$icons.toggle(); // Toggle both icons;
-				setTimeout( function () {
-					callback();
-					$icons.toggle();
-				}, 300 );
-			},
-
 			// Hide toolbar when scrolling
-		 hideOnScroll = function () {
+			hideOnScroll = function () {
 				if ( settings.hideOnScroll ) {
-					$( window ).scroll( function () {
+					$( window ).on( 'scroll', function () {
 						if ( $container.hasClass( 'open' ) ) {
 							$container.removeClass( 'open' );
 						}
@@ -263,14 +219,73 @@
 			},
 
 			// Save object in cookie named 'real-accessability' when user redirect page
-		 saveOnRedirect = function () {
+			saveOnRedirect = function () {
 				$( window ).on( 'beforeunload', function () {
 					document.cookie = 'real-accessability=' + JSON.stringify( obj ) + '; path=/';
 				} );
 			};
 
+		// Init
+		function init() {
+			disableClicking();
+			hideOnScroll();
+			saveOnRedirect();
+
+			$container.css( 'display', 'block' ); // Hidden inline by default
+			$toggler.find( '.real-accessability-icon' ).css( 'display', 'inline-block' );
+			$toggler.find( '.real-accessability-loading' ).toggle();
+
+			var cookie = getCookie( 'real-accessability' );
+			if ( cookie !== '' ) {
+				obj = JSON.parse( cookie );
+				$rootElement.find( settings.markup ).not( settings.exclude ).each( function () {
+					var fontSize = parseInt( $( this ).css( 'font-size' ) );
+					$( this ).attr( 'data-raofz', fontSize );
+				} );
+
+				if ( obj.fontSize !== 0 ) {
+					$( settings.markup ).not( settings.exclude ).each( function () {
+						var fontSize = parseInt( $( this ).data( 'raofz' ) );
+						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) );
+					} );
+
+					if ( obj.fontSize > 0 ) {
+						$( '#real-accessability-smallerFont' ).removeClass( 'disabled' );
+					}
+				}
+
+				// For themes that touched the default <?php body_class(); ?> class
+				if ( !$rootElement.hasClass( obj.effect ) && obj.effect !== null ) {
+					// The following classes are used here:
+					// * real-accessability-high-contrast,
+					// * real-accessability-grayscale,
+					// * real-accessability-invert
+					$rootElement.addClass( obj.effect );
+					$( '#' + obj.effect ).addClass( 'active' );
+				}
+
+				if ( !$rootElement.hasClass( obj.linkHighlight ) && obj.linkHighlight === true ) {
+					$rootElement.addClass( 'real-accessability-linkHighlight' );
+					$( '#real-accessability-linkHighlight' ).addClass( 'active' );
+				}
+
+				if ( !$rootElement.hasClass( obj.regularFont ) && obj.regularFont === true ) {
+					$rootElement.addClass( 'real-accessability-regularFont' );
+					$( '#real-accessability-regularFont' ).addClass( 'active' );
+				}
+			}
+
+			$toggler.on( 'click', openToolbar );
+			$container.find( '.panel-heading .close' ).on( 'click', openToolbar );
+			$( '#real-accessability-biggerFont' ).on( 'click', increaseFont );
+			$( '#real-accessability-smallerFont' ).on( 'click', decreaseFont );
+			$( '.real-accessability-effect' ).on( 'click', effectChange );
+			$( '#real-accessability-linkHighlight' ).on( 'click', linkHighlight );
+			$( '#real-accessability-reset' ).on( 'click', reset );
+		}
+
 		init();
 
 	};
 
-}( jQuery ) );
+}() );
