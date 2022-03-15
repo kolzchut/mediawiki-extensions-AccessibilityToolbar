@@ -238,7 +238,7 @@
 
 			// Disable clicking on toolbar links
 		disableClicking = function () {
-				$( '.real-accessability-actions' ).children().bind( 'click', function ( e ) {
+				$( '.real-accessability-actions' ).children().on( 'click', function ( e ) {
 					e.preventDefault();
 				} );
 			},
