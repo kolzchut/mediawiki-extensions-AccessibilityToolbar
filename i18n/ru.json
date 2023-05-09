@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tatiana Berlin"
+		]
+	},
+
+	"accessibilitytoolbar": "Меню инструментов доступности",
+	"accessibilitytoolbar-desc": "Инструменты доступности на основе возможностей браузера — увеличение текста, изменение контраста и т. д.\n на основе плагина для WordPress [https://wordpress.org/plugins/real-accessability/ Real Accessibility] от [https: //realmedia.co .il RealMedia].",
+	"a11ytoolbar-header": "Меню специальных возможностей",
+	"a11ytoolbar-close-btn": "Закрыть",
+	"a11ytoolbar-btn-text": "Доступность",
+	"a11ytoolbar-btn-tooltip": "Нажмите, чтобы отобразить специальные возможности и параметры отображения",
+	"a11ytoolbar-increase-font": "Увеличить текст",
+	"a11ytoolbar-decrease-font": "Уменьшить текст",
+	"a11ytoolbar-filter-high-contrast": "Высокий цветовой контраст",
+	"a11ytoolbar-filter-grayscale": "Оттенки серого",
+	"a11ytoolbar-filter-invert": "Инверсия цвета",
+	"a11ytoolbar-highlight-links": "Выделение ссылок",
+	"a11ytoolbar-reset-settings": "Сбросить настройки",
+	"a11ytoolbar-statement": "Заявление о доступности",
+	"a11ytoolbar-statement-page": ":he:Project:נגישות"
+}
