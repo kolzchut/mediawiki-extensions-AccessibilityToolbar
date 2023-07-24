@@ -3,7 +3,7 @@
 	display: none;
 
 	// Keep the widget hidden on smaller screens
-	@media ( max-width: @screen-sm-min ) {
+	@media ( max-width: var( --screen-sm-min, 768px ) ) {
 		/* stylelint-disable-next-line declaration-no-important */
 		display: none !important;
 	}
@@ -12,4 +12,135 @@
 		/* stylelint-disable-next-line declaration-no-important */
 		display: none !important;
 	}
+}
+
+.panel-default {
+	border-color: #dddddd;
+}
+
+.panel {
+	margin-bottom: 24px;
+	background-color: #ffffff;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 20px;
+	color: inherit;
+}
+
+button.close {
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.close {
+	float: right;
+	font-size: 25.5px;
+	font-weight: bold;
+	line-height: 1;
+	color: #000000;
+	text-shadow: 0 1px 0 #ffffff;
+	filter: alpha(opacity=20);
+	opacity: 0.2;
+}
+
+.panel > .list-group, .panel > .panel-collapse > .list-group {
+	margin-bottom: 0;
+}
+
+.panel > .list-group .list-group-item, .panel > .panel-collapse > .list-group .list-group-item {
+	border-width: 1px 0;
+	border-radius: 0;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+	z-index: 2;
+	color: var( --local-list-group-active-color );
+	background-color: var( --local-list-group-active-bg );
+	border-color: var( --local-list-group-active-border );
+}
+
+.list-group {
+	--local-list-group-active-color: var( --list-group-active-color, #ffffff );
+	--local-list-group-active-bg: var( --list-group-active-bg, #5b7f31 );
+	--local-list-group-active-border: var( --list-group-active-border, #5b7f31 );
+
+	padding-left: 0;
+	margin-bottom: 20px;
+}
+
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	margin-bottom: -1px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+}
+
+.panel-heading + .list-group .list-group-item:first-child {
+	border-top-width: 0;
+}
+.panel > .list-group .list-group-item, .panel > .panel-collapse > .list-group .list-group-item {
+	border-width: 1px 0;
+	border-radius: 0;
+}
+.list-group-item:first-child {
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+button.list-group-item {
+	width: 100%;
+	text-align: left;
+}
+a.list-group-item, button.list-group-item {
+	color: #555555;
+}
+
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	margin-bottom: -1px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+}
+
+a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, button.list-group-item:focus {
+	color: #555555;
+	text-decoration: none;
+	background-color: #f5f5f5;
+}
+
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
+	color: #777777;
+	cursor: not-allowed;
+	background-color: #eeeeee;
+}
+
+.list-group + .panel-footer {
+	border-top-width: 0;
+}
+.panel-footer {
+	padding: 10px 15px;
+	background-color: #f5f5f5;
+	border-top: 1px solid #dddddd;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }

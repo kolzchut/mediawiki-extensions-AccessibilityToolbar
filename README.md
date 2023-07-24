@@ -17,22 +17,17 @@ and well on the way to eliminate most or all of the original code.
   - Invert colors
 
 ## Dependencies
-This extension's style is dependent on the following:
-
-- Bootstrap 3 (specifically the panel component)
-- FontAwesome 4.6.3
-
-Both are included in skin:Helena, which this was created for,
-but you can include them yourself when using another skin.
+This extension's style is dependent on FontAwesome 4.6.3, which is included in skin:Helena,
+but you can include it yourself when using another skin.
 
 ## Compatibility
 Tested in Firefox 48, Chrome 52, IE10, IE11, Microsoft Edge.
 
-In IE10 & IE11 no filter options will be available.
+In IE10 & IE11 filter options will not be available.
 
 
 ## Possible issues
-As this is a client side tool, it will probably cause a FOUC
+As this is a client-side tool, it will probably cause a FOUC
 (Flash of Unstyled Content) on page load before applying the
 current user settings.
 
@@ -80,6 +75,10 @@ current user settings.
 [GPL-2.0+]: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Changelog
+
+### 0.3.0
+Removed dependency on HelenaResourceLoaderModule and Boostrap 3 -
+CSS styles were imported into the extension and CSS variables are used for compatibility.
 
 ### 0.2.0
 New configuration option: $wgAccessibilityToolbarIconColor. Removed the

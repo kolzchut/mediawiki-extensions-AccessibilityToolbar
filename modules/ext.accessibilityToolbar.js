@@ -9,7 +9,7 @@
 
 	$( function () {
 		$.RealAccessability( {
-			rootElement: '#bodyWrapper',
+			rootElement: '#content',
 			hideOnScroll: false
 		} );
 	} );
