@@ -13,4 +13,11 @@
 			hideOnScroll: false
 		} );
 	} );
+
+	document.querySelector( '.accessibility .dropdown-menu' )
+		.addEventListener( 'click', function ( event ) {
+			if ( !event.target.classList.contains( 'close' ) ) {
+				event.stopPropagation();
+			}
+		} );
 }() );
