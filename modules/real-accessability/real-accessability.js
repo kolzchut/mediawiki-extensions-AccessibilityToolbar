@@ -96,7 +96,7 @@
 					obj.fontSize++;
 					$( settings.markup ).not( settings.exclude ).each( function () {
 						var fontSize = parseInt( $( this ).data( 'raofz' ) );
-						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) );
+						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) + 'px' );
 					} );
 					$( window ).trigger( 'resize' ); /* things might need to be recalculated */
 					$( '#real-accessability-smallerFont' ).removeClass( 'disabled' );
@@ -114,7 +114,7 @@
 					obj.fontSize--;
 					$( settings.markup ).not( settings.exclude ).each( function () {
 						var fontSize = parseInt( $( this ).data( 'raofz' ) );
-						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) );
+						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize )  + 'px' );
 					} );
 					$( window ).trigger( 'resize' ); /* things might need to be recalculated */
 					$( '#real-accessability-biggerFont' ).removeClass( 'disabled' );
@@ -177,7 +177,7 @@
 
 					$( settings.markup ).not( settings.exclude ).each( function () {
 						var fontSize = parseInt( $( this ).data( 'raofz' ) );
-						$( this ).css( 'font-size', fontSize );
+						$( this ).css( 'font-size', fontSize + 'px' );
 					} );
 
 					// Remove any class that starts with "real-accessability-"
@@ -246,7 +246,7 @@
 				if ( obj.fontSize !== 0 ) {
 					$( settings.markup ).not( settings.exclude ).each( function () {
 						var fontSize = parseInt( $( this ).data( 'raofz' ) );
-						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) );
+						$( this ).css( 'font-size', fontSize + ( settings.fontSizeStepBy * obj.fontSize ) + 'px' );
 					} );
 
 					if ( obj.fontSize > 0 ) {
