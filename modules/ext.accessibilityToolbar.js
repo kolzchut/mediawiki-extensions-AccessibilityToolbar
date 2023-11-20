@@ -14,10 +14,12 @@
 		} );
 	} );
 
-	document.querySelector( '.accessibility .dropdown-menu' )
-		.addEventListener( 'click', function ( event ) {
+	var element = document.querySelector( '.accessibility .dropdown-menu' );
+	if ( element ) {
+		element.addEventListener( 'click', function ( event ) {
 			if ( !event.target.classList.contains( 'close' ) ) {
 				event.stopPropagation();
 			}
 		} );
+	}
 }() );
