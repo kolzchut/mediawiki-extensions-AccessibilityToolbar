@@ -1,6 +1,6 @@
 {
 	"name": "AccessibilityToolbar",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"author": [
 		"Dror S. [FFS] ([http://www.kolzchut.org.il Kol-Zchut])"
 	],
@@ -9,49 +9,45 @@
 	"descriptionmsg": "accessibilityToolbar-desc",
 	"license-name": "GPL-2.0+",
 	"type": "other",
-	"manifest_version": 1,
+	"manifest_version": 2,
 	"MessagesDirs": {
 		"AccessibilityToolbar": [
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"AccessibilityToolbar": "AccessibilityToolbar.php",
-		"AccessibilityToolbarHooks": "AccessibilityToolbarHooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\AccessibilityToolbar\\": "includes/"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\AccessibilityToolbar\\Hooks",
+			"services": [
+				"MainConfig",
+				"TitleFactory"
+			]
+		}
 	},
 	"config": {
-		"AccessibilityToolbarPosition": "top",
-		"AccessibilityToolbarIconColor": null,
-		"AccessibilityToolbarDisableButton": false
+		"AccessibilityToolbarPosition": {
+			"value": "top"
+		},
+		"AccessibilityToolbarIconColor": {
+			"value": null
+		},
+		"AccessibilityToolbarDisableButton": {
+			"value": false
+		}
 	},
 	"ResourceModules": {
-		"real-accessability": {
-			"scripts": [
-				"modules/real-accessability/real-accessability.js"
-			],
-			"styles": [
-				"modules/real-accessability/real-accessability.less"
-			],
-			"messages": [
-			],
-			"targets": [
-				"desktop"
-			]
-		},
 		"ext.accessibilityToolbar": {
 			"scripts": [
-				"modules/ext.accessibilityToolbar.js"
+				"resources/ext.accessibilityToolbar.js"
 			],
 			"styles": [
-				"modules/ext.accessibilityToolbar.less"
-			],
-			"templates": {
-				"toolbar.mustache": "templates/Toolbar.mustache"
-			},
-			"messages": [
+				"resources/ext.accessibilityToolbar.less"
 			],
 			"dependencies": [
-				"real-accessability"
+				"mediawiki.cookie"
 			],
 			"targets": [
 				"desktop"
@@ -63,11 +59,7 @@
 		"remoteExtPath": "AccessibilityToolbar"
 	},
 	"Hooks": {
-		"BeforePageDisplay": [
-			"AccessibilityToolbarHooks::onBeforePageDisplay"
-		],
-		"SkinAfterBottomScripts": [
-			"AccessibilityToolbarHooks::onSkinAfterBottomScripts"
-		]
+		"BeforePageDisplay": "main",
+		"SkinAfterBottomScripts": "main"
 	}
 }

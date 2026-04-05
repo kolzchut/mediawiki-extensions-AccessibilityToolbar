@@ -1,41 +1,41 @@
-<div class="accessibility-menu">
-<div id="real-accessability-body" class="panel panel-default">
+<div class="a11y-toolbar-menu">
+<div id="a11y-toolbar-panel" class="a11y-toolbar-panel panel panel-default">
 	<div class="panel-heading">
-		<button type="button" class="close" data-dismiss="modal" aria-label="{{msg-a11ytoolbar-close-btn}}" title="{{msg-a11ytoolbar-close-btn}}">&times;</button>
+		<button type="button" class="close" aria-label="{{msg-a11ytoolbar-close-btn}}" title="{{msg-a11ytoolbar-close-btn}}">&times;</button>
 		<h2 class="panel-title">{{msg-a11ytoolbar-header}}</h2>
 	</div>
-	<div class="real-accessability-actions list-group">
-		<button type="button" class="list-group-item" id="real-accessability-biggerFont" data-action="bigger_font">
+	<div class="a11y-toolbar-actions list-group">
+		<button type="button" class="list-group-item" data-action="bigger_font">
 			<span class="fa fa-fw fa-plus" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-increase-font}}</span>
 		</button>
-		<button type="button" class="list-group-item disabled" id="real-accessability-smallerFont" data-action="smaller_font">
+		<button type="button" class="list-group-item disabled" data-action="smaller_font">
 			<span class="fa fa-fw fa-minus" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-decrease-font}}</span>
 		</button>
-		<button type="button" class="list-group-item real-accessability-effect" id="real-accessability-high-contrast" data-action="high_contrast_filter" data-filter="contrast">
+		<button type="button" class="list-group-item a11y-toolbar-effect" data-action="effect" data-effect="high-contrast">
 			<span class="fa fa-fw fa-sun-o" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-filter-high-contrast}}</span>
 		</button>
-		<button type="button" class="list-group-item real-accessability-effect" id="real-accessability-invert" data-action="invert_filter" data-filter="invert">
+		<button type="button" class="list-group-item a11y-toolbar-effect" data-action="effect" data-effect="invert">
 			<span class="fa fa-fw fa-adjust" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-filter-invert}}</span>
 		</button>
-		<button type="button" class="list-group-item real-accessability-effect" id="real-accessability-grayscale" data-action="grayscale_filter" data-filter="greyscale">
+		<button type="button" class="list-group-item a11y-toolbar-effect" data-action="effect" data-effect="grayscale">
 			<span class="fa fa-fw fa-tint" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-filter-grayscale}}</span>
 		</button>
-		<button type="button" class="list-group-item" id="real-accessability-linkHighlight" data-action="link_highlight">
+		<button type="button" class="list-group-item" data-action="link_highlight">
 			<span class="fa fa-fw fa-underline" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-highlight-links}}</span>
 		</button>
-		<button type="button" class="list-group-item" id="real-accessability-reset" data-action="reset">
+		<button type="button" class="list-group-item" data-action="reset">
 			<span class="fa fa-fw fa-undo" aria-hidden="true"></span>
 			<span>{{msg-a11ytoolbar-reset-settings}}</span>
 		</button>
 	</div>
 	{{#if accessibility-statement-url}}
-		<div class="panel-footer" id="real-accessability-statement"><a href="{{accessibility-statement-url}}">{{msg-a11ytoolbar-statement}}</a></div>
+		<div class="panel-footer a11y-toolbar-statement"><a href="{{accessibility-statement-url}}">{{msg-a11ytoolbar-statement}}</a></div>
 	{{/if}}
 </div>
 </div>

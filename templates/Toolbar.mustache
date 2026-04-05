@@ -1,7 +1,7 @@
-<div id="real-accessability" style="display: none;" {{#if button-position}}class="{{button-position}} a1"{{/if}}>
-	<a {{#if icon-color}}style="color: {{icon-color}}"{{/if}} href="#" id="real-accessability-btn" title="{{msg-a11ytoolbar-btn-tooltip}}" aria-label="{{msg-a11ytoolbar-btn-tooltip}}" aria-expanded="false" aria-controls="real-accessability-body">
-		<span class="real-accessability-loading fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></span>
-		<span class="real-accessability-icon fa fa-universal-access fa-fw"></span>
+<div class="a11y-toolbar{{#if button-position}} {{button-position}}{{/if}}" style="display: none;">
+	<a {{#if icon-color}}style="color: {{icon-color}}"{{/if}} href="#" class="a11y-toolbar-btn" title="{{msg-a11ytoolbar-btn-tooltip}}" aria-label="{{msg-a11ytoolbar-btn-tooltip}}" aria-expanded="false" aria-controls="a11y-toolbar-panel">
+		<span class="a11y-toolbar-loading fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></span>
+		<span class="a11y-toolbar-icon fa fa-universal-access fa-fw"></span>
 	</a>
 
 	{{>Menu}}

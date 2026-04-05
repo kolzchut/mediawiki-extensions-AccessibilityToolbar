@@ -31,6 +31,12 @@ As this is a client-side tool, it will probably cause a FOUC
 (Flash of Unstyled Content) on page load before applying the
 current user settings.
 
+## TODO
+- **Font scaling**: Replace per-node `font-size` manipulation with a single
+  `font-size` percentage on a configurable root element (default: `<html>`).
+  This would require skins using this extension (e.g. Cassandra, CassandraKiosk)
+  to use relative units (`rem`/`em`) for font sizes instead of `px`.
+
 
 ## Configuration
 - `$wgAccessibilityToolbarPosition` = "top" / "bottom" / "none"
@@ -75,6 +81,11 @@ current user settings.
 [GPL-2.0+]: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Changelog
+
+### 0.3.1 (**breaking change**)
+Modernized to MediaWiki standards: service injection via constructor, instance-based hook
+handlers, `AutoloadNamespaces`, namespaced classes, and updated dev dependencies.
+Callers must now instantiate `AccessibilityToolbar` with `(Config, TitleFactory)` arguments.
 
 ### 0.3.0
 Removed dependency on HelenaResourceLoaderModule and Boostrap 3 -
